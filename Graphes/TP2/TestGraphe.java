@@ -1,0 +1,60 @@
+public class TestGraphe{
+
+
+	public static void main(String[] args) {
+
+	//Graphe de la france et ses voisins :
+	/*
+	0:France
+	1:Espagne
+	2:Portugal
+	3:Italie
+	4:Suisse
+	5:Allemagne
+	6:Belgique
+	7:Luxembourg
+	8:Pays-Bas
+	*/
+	Graphe europe=new Graphe(9,false);
+	europe.ajoutArete(0,1);
+	europe.ajoutArete(0,3);
+	europe.ajoutArete(0,4);
+	europe.ajoutArete(0,5);
+	europe.ajoutArete(0,6);
+	europe.ajoutArete(0,7);
+	europe.ajoutArete(1,2);
+	europe.ajoutArete(3,4);
+	europe.ajoutArete(4,5);
+	europe.ajoutArete(5,6);
+	europe.ajoutArete(5,7);
+	europe.ajoutArete(5,8);
+	europe.ajoutArete(6,7);
+	europe.ajoutArete(6,8);	
+	System.out.println(europe);
+
+	europe.voisinage(0);
+	int t=europe.sommeVoisins();
+	System.out.println(t==14*2);
+
+
+	//Exemple de graphe oriente.
+		Graphe g=new Graphe(5,true);
+		g.ajoutArete(0,2);
+		g.ajoutArete(0,4);
+		g.ajoutArete(1,0);
+		g.ajoutArete(1,3);
+		g.ajoutArete(2,3);
+		g.ajoutArete(3,1);
+		g.ajoutArete(3,4);
+		g.ajoutArete(4,0);
+	g.voisinage(1);
+	System.out.println(g.sommeVoisins()==8);
+
+	JGraphe gr=new JGraphe(europe);
+	gr.affiche(500);
+
+	MatriceCarre matriceNBchemain = g.nombreDeChemins(2);
+	
+	System.out.println(matriceNBchemain);
+	}
+}

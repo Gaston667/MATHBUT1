@@ -25,25 +25,40 @@ public class GrapheValues extends Graphe{
 		}
 	}
 
-	public int d(int i, int j){
-		return i+j
-	}
+	/*public int d(int i, int j){
+		return i+j;
+	}*/
 
 	public void Djikstra(int sommentDepart){
 		if (sommentDepart >=this.ordre || sommentDepart < 0) {
 			throw new IllegalArgumentException("Erreur : Sommet De Départ inexistant.");
 		}
 
-		boolean[] traite =new boolean[this.ordre];
-		int[] sortie =new int[2][this.ordre];
+		// Initialisation a Tableau a deux demension. et le tableau des boulenan pour les traite
+		int[][] sortie =new int[2][this.ordre];
+		boolean[] traite_Vue =new boolean[this.ordre];
+
+		// Initialisation des tableau
 		for(int i=0; i<this.ordre; i++){
 			sortie[0][i] = -1;
-			boolean[i] = false;
+			traite_Vue[i] = false;
+		}
+		for(int i=0; i<this.ordre; i++){
+			sortie[1][i] = -1;
+			if(i == sommentDepart){
+				sortie[1][sommentDepart] = 0;
+			}
 		}
 
-		sortie[0][sommentDepart] = d(0,0);
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < this.ordre; j++) {
+				System.out.println(sortie[i][j]);
+			}
+			System.err.println("");
+		}
 
-		while(!traite)
+
+		//while(!traite)
 
 
 	}

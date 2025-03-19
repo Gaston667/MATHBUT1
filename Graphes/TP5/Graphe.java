@@ -228,10 +228,10 @@ public int[] tableauDegre(){
 		}
 	}
 }*/
-/*------------------------------TP 4 suite de TP 3---------------------------------------*/
+/*------------------------------ Suite du TP 3 ---------------------------------------*/
 
 
-/*------------------------------TP 5 -------------------------------------------------*/
+/*------------------------------ TP 4  -------------------------------------------------*/
 
 	/* J'ai creer une nouvlle classe GrapheValues qui herite de la classe Graphe
 	 	pour representer un graphes value j'ai defini les fonctions ajouteArete(int i, int j int v)

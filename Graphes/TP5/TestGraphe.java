@@ -70,6 +70,7 @@ public class TestGraphe{
 	
 	System.out.println(europeValue);// Details sur le Graphes;
 	System.out.println("La Value est: "+europeValue.getAreteVal(6,5));
+	europeValue.Djikstra(1);
 
 
 /*----------------------- Exemple de graphe oriente. --------------------------*/

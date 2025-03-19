@@ -124,6 +124,8 @@ public boolean equals(Graphe g){
 	return true;
 }
 
+/*-------------------------------- TP 2 ------------------------------------------*/
+
 // Fonction qui permet de calculer la matrice contenant les chemins d'une longeur donnee 
 
 public MatriceCarre nombreDeChemins(int longeur ){

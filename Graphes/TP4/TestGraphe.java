@@ -15,6 +15,7 @@ public class TestGraphe{
 	7:Luxembourg
 	8:Pays-Bas
 	*/
+		
 	Graphe europe=new Graphe(9,false);
 	europe.ajoutArete(0,1);
 	europe.ajoutArete(0,3);
@@ -47,7 +48,6 @@ public class TestGraphe{
 	int[]tab = europe.tableauDegre();
 	for (int i =0; i<tab.length; i++) {
 		System.out.print(tab[i]+);
-
 	}
 
 	

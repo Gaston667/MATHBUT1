@@ -25,27 +25,72 @@ public class GrapheValues extends Graphe{
 		}
 	}
 
-	public int d(int i, int j){
+	/*public int d(int i, int j){
 		return i+j
-	}
+	}*/
 
 	public void Djikstra(int sommentDepart){
 		if (sommentDepart >=this.ordre || sommentDepart < 0) {
 			throw new IllegalArgumentException("Erreur : Sommet De Départ inexistant.");
 		}
 
+		// Creation et initialisation des variables
 		boolean[] traite =new boolean[this.ordre];
-		int[] sortie =new int[2][this.ordre];
+		int[][] sortie =new int[2][this.ordre];
 		for(int i=0; i<this.ordre; i++){
 			sortie[0][i] = -1;
-			boolean[i] = false;
+			sortie[1][i] = Integer.MAX_VALUE;
+			traite[i] = false;
 		}
 
-		sortie[0][sommentDepart] = d(0,0);
+		// Initialisons le sommet de depart a à 0
+		sortie[1][sommentDepart] = 0;
 
-		while(!traite)
+		// Tanqu'il reste de sommet a traiter 
+		int ctp = 0;
+		while(ctp < this.ordre) {
+			int minSommet = -1;
+			int minDistance = Integer.MAX_VALUE;
 
+			// Trouvons le sommet non traité avec la plus petite distance
+			for (int i=0; i<this.ordre; i++) {
+				if (!traite[i] && sortie[1][i] < minDistance) {
+					minSommet = i; // Le sommet le plus petit c i
+					minDistance = sortie[1][i]; // La distance la plus petit est celle de i
+				}
+			}
 
+			// On verifie si tout les sommet ont deja ete traite si oui on stop la boucle 
+			if (minSommet == -1) {
+				System.out.println("Je passe dans le break");
+				break; // Ou  que le sommet est inateganble 
+			}
+			traite[minSommet] = true;
+			ctp++;
+
+			// On va mettre a jour les distances des voisins  
+			for (int voisin=0; voisin < this.ordre; voisin++) {
+				if(!traite[voisin]){ // On verifie que le voisin n'a pas été traiter 
+					// On recupere le poid de l'arrete entre voisin et sommet
+					int poid = getAreteVal(minSommet, voisin);
+
+					if (poid > 0) { //si il existe une arrete entre le sommet et minsommet
+						int nouvelleDistance = sortie[1][minSommet] + poid;
+
+						//Si un chemin plus court est trouve, on met a jour
+						if(nouvelleDistance < sortie[1][voisin]){
+							sortie[1][voisin] = nouvelleDistance; // on met a jour la distance
+							sortie[0][voisin] = minSommet; // On met a jour le sommet
+						}
+					}
+				}
+			}
+		}
+		// Gestion de l'afichage 
+		System.out.println(" Sommet | Distance | Pere ");
+		for (int i=0; i<this.ordre; i++) {
+			System.out.println(i+"       |"+sortie[1][i]+"     |"+sortie[0][i]);
+		}
 	}
 		
 

@@ -69,8 +69,8 @@ public class TestGraphe{
 	europeValue.ajoutArete(6,8,7);	
 	
 	System.out.println(europeValue);// Details sur le Graphes;
-	System.out.println("La Value est: "+europeValue.getAreteVal(6,5));
-
+	System.out.println("La Value de 6 et 5 est: "+europeValue.getAreteVal(6,5));
+	europeValue.Djikstra(0);
 
 /*----------------------- Exemple de graphe oriente. --------------------------*/
 
